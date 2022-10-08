@@ -1,0 +1,33 @@
+.icon {
+  height: 40px;
+}
+
+.fbicon {
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.fbicon:hover {
+  fill: #1877f2;
+  transform: translateY(-5px);
+}
+
+.twittericon {
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.twittericon:hover {
+  fill: #1d9bf0;
+  transform: translateY(-5px);
+}
+
+.instaicon {
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.instaicon:hover {
+  fill: #c13584;
+  transform: translateY(-5px);
+}

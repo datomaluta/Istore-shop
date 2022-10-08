@@ -1,0 +1,111 @@
+@import "../../styles/variables.scss";
+
+.detail-section {
+  padding: 8rem 0;
+}
+
+.for-loading {
+  height: 70rem;
+  width: 100%;
+  //   background-color: red;
+}
+
+.detail {
+  width: 80%;
+  height: 50rem;
+  //   background-color: red;
+  margin: 0 auto;
+  display: flex;
+  box-shadow: 0 3rem 2.5rem rgba(#000, 0.2);
+  //   box-shadow: -1rem 1rem 5rem 9rem rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid $color-primary;
+
+  &-img-box {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: linear-gradient(
+      to right bottom,
+      $color-primary-dark,
+      $color-primary-light
+    );
+
+    & img {
+      width: 70%;
+      height: 80%;
+      object-fit: cover;
+      border-radius: 1rem;
+    }
+  }
+
+  &-text-box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    padding: 2rem 5rem;
+
+    & h3 {
+      font-size: 3.2rem;
+      color: $color-primary;
+    }
+
+    & p {
+      font-size: 1.8rem;
+      font-weight: 300;
+    }
+  }
+
+  &-count-input {
+    // background-color: red;
+    display: flex;
+    gap: 1rem;
+    & button {
+      width: 3rem;
+      background-color: $color-primary;
+      color: #fff;
+      border: none;
+      font-size: 2.4rem;
+      padding: 0.5rem;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    & input {
+      height: 100%;
+      width: 4rem;
+      font-size: 2rem;
+      text-align: center;
+      border: 1px solid $color-primary;
+      border-radius: 0.4rem;
+      color: $color-primary;
+      font-weight: 500;
+      font-family: inherit;
+    }
+  }
+
+  &-add-cart {
+    color: #fff;
+    font-family: inherit;
+    background-color: $color-primary;
+    padding: 1.5rem 3.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    width: 100%;
+    // display: inline-block;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 1rem;
+  }
+}
