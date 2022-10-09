@@ -1,9 +1,13 @@
 import "./Header.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import SearchIcon from "../../assets/headerIcons/SearchIcon";
 import CartIcon from "../../assets/headerIcons/CartIcon";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const productsCount = useSelector((state) => state.cart.products).length;
+  const navigate = useNavigate();
+  console.log(productsCount);
   return (
     <header className="header">
       <div className="header__logo">Istore</div>
@@ -63,9 +67,12 @@ const Header = () => {
           <SearchIcon />
         </div>
 
-        <button className="header__actions--cart">
+        <button
+          onClick={() => navigate("/cart")}
+          className="header__actions--cart"
+        >
           <CartIcon />
-          <span className="header__actions--cart-badge">0</span>
+          <span className="header__actions--cart-badge">{productsCount}</span>
         </button>
 
         <button className="header__actions--login">Sign In</button>

@@ -2,8 +2,26 @@ import classes from "./ProductItem.module.scss";
 import StartIcon from "../../../assets/genIcons/StarIcon";
 import { Link } from "react-router-dom";
 import CartIconCard from "../../../assets/cardIcons/CartIconCard";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../../store/cart-slice";
 
 const ProductItem = (props) => {
+  const cartProducts = useSelector((state) => state.cart.products);
+  const dispatch = useDispatch();
+
+  const addToCartHandler = () => {
+    dispatch(
+      cartActions.addToCart({
+        id: props.id,
+        title: props.title,
+        price: props.price,
+        img: props.img,
+      })
+    );
+  };
+
+  console.log(cartProducts);
+
   return (
     <div className={classes["card"]}>
       <Link className={classes["card__link"]} to={`/product/${props.id}`}>
@@ -19,13 +37,13 @@ const ProductItem = (props) => {
           <StartIcon />
           <StartIcon />
         </div>
-        <button className={classes["card__book--now"]}>
-          <span>Add To Cart</span>
-          <span>
-            <CartIconCard />
-          </span>
-        </button>
       </Link>
+      <button onClick={addToCartHandler} className={classes["card__book--now"]}>
+        <span>Add To Cart</span>
+        <span>
+          <CartIconCard />
+        </span>
+      </button>
     </div>
   );
 };

@@ -1,0 +1,35 @@
+@import "../../../styles/variables.scss";
+
+.cartSection {
+  //   background-color: rgb(147, 125, 125);
+  padding: 6rem 0;
+}
+
+// .cartSection:first-child {
+//   background-color: red;
+// }
+
+.headings {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  justify-content: space-between;
+  font-size: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid $color-grey-for-border;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.product {
+  //   background-color: red;
+  width: 50%;
+}
+
+.priceAndQuantity {
+  display: flex;
+  //   background-color: red;
+  width: 50%;
+  justify-content: space-between;
+}
