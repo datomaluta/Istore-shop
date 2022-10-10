@@ -1,11 +1,22 @@
 @import "../../styles/variables.scss";
 
 .footer {
+  // position: absolute;
+  // bottom: 0;
+  // width: 100%;
   display: flex;
   justify-content: space-between;
   padding-bottom: 2rem;
   padding-top: 2rem;
   border-top: 1px solid $color-grey-for-border;
+
+  // align-self: flex-end;
+  // flex-grow: 1;
+  // justify-self: flex-end;
+  // align-self: flex-end;
+
+  &:last-child {
+  }
 
   &__info {
     width: 25%;

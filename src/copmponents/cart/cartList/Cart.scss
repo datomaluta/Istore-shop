@@ -1,13 +1,8 @@
 @import "../../../styles/variables.scss";
 
 .cartSection {
-  //   background-color: rgb(147, 125, 125);
-  padding: 6rem 0;
+  padding: 10rem 0;
 }
-
-// .cartSection:first-child {
-//   background-color: red;
-// }
 
 .headings {
   width: 80%;
@@ -23,13 +18,49 @@
 }
 
 .product {
-  //   background-color: red;
   width: 50%;
 }
 
 .priceAndQuantity {
   display: flex;
-  //   background-color: red;
+
   width: 50%;
   justify-content: space-between;
+}
+
+.subTotal {
+  width: 80%;
+  // background-color: red;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+
+  & h2 {
+    font-size: 2.4rem;
+    color: $color-primary;
+  }
+}
+
+.goCheckout {
+  width: 80%;
+  margin: 0 auto;
+
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+
+  & button {
+    background-color: $color-primary;
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    font-family: inherit;
+    font-weight: 600;
+    padding: 1.5rem 2.5rem;
+
+    border-radius: 1rem;
+    text-align: center;
+    cursor: pointer;
+  }
 }

@@ -63,6 +63,9 @@
   }
 
   &-totalPrice {
+    width: 10%;
+    display: flex;
+    justify-content: flex-end;
     font-weight: 600;
     color: $color-primary;
   }
@@ -82,7 +85,7 @@
       font-family: inherit;
     }
 
-    & input {
+    & div {
       width: 4rem;
       font-size: 2rem;
       text-align: center;
@@ -91,6 +94,9 @@
       color: $color-primary;
       font-weight: 500;
       font-family: inherit;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

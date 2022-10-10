@@ -16,6 +16,7 @@ const ProductItem = (props) => {
         title: props.title,
         price: props.price,
         img: props.img,
+        quantity: 1,
       })
     );
   };

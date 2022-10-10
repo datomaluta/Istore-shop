@@ -1,15 +1,30 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import CartIconCard from "../../assets/cardIcons/CartIconCard";
 import LoadingSpinner from "../../UI/spinner/LoadingSpinner";
 import NewProductList from "../newProducts/newProductList/NewProductList";
 import "./ProductDetails.scss";
+import { cartActions } from "../../store/cart-slice";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState("");
+  const [count, setCount] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const params = useParams();
-  console.log(params);
+  const dispatch = useDispatch();
+
+  const addToCartHandler = () => {
+    dispatch(
+      cartActions.addToCart({
+        id: product.id,
+        price: product.price,
+        title: product.title,
+        img: product.images[0],
+        quantity: count,
+      })
+    );
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +39,23 @@ const ProductDetails = () => {
     };
     fetchData();
   }, [params.id]);
+
+  const countIncreaseHandler = () => {
+    setCount((currCount) => currCount + 1);
+  };
+
+  const countDecreaseHandler = () => {
+    if (count === 1) {
+      return;
+    } else {
+      setCount((currCount) => currCount - 1);
+    }
+  };
+
+  const countChangeHandler = (event) => {
+    setCount(event.target.value);
+  };
+
   return (
     <>
       <section className="detail-section">
@@ -39,11 +71,11 @@ const ProductDetails = () => {
               <p>{product.description}</p>
               <h3>${product.price.toFixed(2)}</h3>
               <div className="detail-count-input">
-                <button>-</button>
-                <input defaultValue={0} />
-                <button>+</button>
+                <button onClick={countDecreaseHandler}>-</button>
+                <input value={count} onChange={countChangeHandler} />
+                <button onClick={countIncreaseHandler}>+</button>
               </div>
-              <button className="detail-add-cart">
+              <button onClick={addToCartHandler} className="detail-add-cart">
                 <span>Add To Cart</span>
                 <span>
                   <CartIconCard />

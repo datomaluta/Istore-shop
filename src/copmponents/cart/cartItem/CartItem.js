@@ -1,6 +1,23 @@
+import { useDispatch, useSelector } from "react-redux";
 import "./CartItem.scss";
+import { cartActions } from "../../../store/cart-slice";
 
 const CartItem = (props) => {
+  const dispatch = useDispatch();
+  const cartProducts = useSelector((state) => state.cart.products);
+
+  const certainProduct = cartProducts.find(
+    (product) => product.id === props.id
+  );
+
+  const countIncreaseHandler = () => {
+    dispatch(cartActions.addQuantity({ id: props.id }));
+  };
+
+  const countDecreaseHandler = () => {
+    dispatch(cartActions.removeFromCart({ id: props.id }));
+  };
+
   return (
     <div className="cartItem">
       <div className="cartItem-product">
@@ -16,12 +33,17 @@ const CartItem = (props) => {
           <p>${props.price}</p>
         </div>
         <div className="cartItem-quantity">
-          <button>-</button>
-          <input defaultValue={1} />
-          <button>+</button>
+          <button onClick={countDecreaseHandler}>-</button>
+          {/* <input
+            onChange={countChangeHandler}
+            disabled
+            defaultValue={certainProduct.quantity}
+          /> */}
+          <div>{certainProduct.quantity}</div>
+          <button onClick={countIncreaseHandler}>+</button>
         </div>
         <div className="cartItem-totalPrice">
-          <p>${1200}</p>
+          <p>${certainProduct.quantity * props.price}</p>
         </div>
       </div>
     </div>

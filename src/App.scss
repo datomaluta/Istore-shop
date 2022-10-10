@@ -5,4 +5,12 @@ $color-primary: #2333;
   margin: 0 auto;
   padding-left: 2rem;
   padding-right: 2rem;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex-grow: 1;
 }

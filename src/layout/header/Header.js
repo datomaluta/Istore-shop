@@ -3,13 +3,29 @@ import { NavLink, useNavigate } from "react-router-dom";
 import SearchIcon from "../../assets/headerIcons/SearchIcon";
 import CartIcon from "../../assets/headerIcons/CartIcon";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import Popup from "../../UI/popup/Popup";
 
 const Header = () => {
-  const productsCount = useSelector((state) => state.cart.products).length;
+  const productsCount = useSelector((state) => state.cart.totalQuantity);
+  const [popupVisible, setPopupVisible] = useState(false);
   const navigate = useNavigate();
-  console.log(productsCount);
+
+  const modalCloseHandler = () => {
+    setPopupVisible(false);
+  };
+
+  const navigateToCartHadler = () => {
+    if (productsCount > 0) {
+      navigate("/cart");
+    } else {
+      setPopupVisible(true);
+    }
+  };
+
   return (
     <header className="header">
+      {popupVisible && <Popup onClose={modalCloseHandler} />}
       <div className="header__logo">Istore</div>
 
       <nav className="navigation">
@@ -68,7 +84,7 @@ const Header = () => {
         </div>
 
         <button
-          onClick={() => navigate("/cart")}
+          onClick={navigateToCartHadler}
           className="header__actions--cart"
         >
           <CartIcon />
