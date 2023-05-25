@@ -4,9 +4,7 @@
 
 ---
 
-### Screenshot
-
-![](./src/assets/images/screenshot.png)
+![](./src/assets/images/screenshot.jpg)
 
 This is an e-commerce web application with my vision of design. Data is fetched from a free API. You can view the main page and also the shop page, where you can see certain products if you click an item. by clicking on add button, item will add to cart and also you can see your cart where are chosen products. Job is not finished, site is under working!!!
 
